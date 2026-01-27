@@ -1,4 +1,4 @@
-name: 'shell script cicd'
+name: 'shell script'
 
 on:
  push:
@@ -7,19 +7,31 @@ on:
      - master
 
 env:
-  project: 'shell script'
+ setup: "production"
 
 jobs:
-  run-shell-script:
-   name: 'shell script run'
-   runs-on: ubuntu-latest
-   steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: add executable permssions to file
-        run: chmod +x script.sh
-      - name: run the file
-        run: ./script.sh
-        
-   
+ shell-script:
+  name: 'shell-script'
+  runs-on: ubuntu-latest
+  steps:
+     - name: checkout code
+       uses: actions/checkout@v2
+     - name: add executable permissions
+       run: chmod +x script.sh
+     - name: run file
+       run: ./script.sh
+
+
+ install-terraform:
+  name: install terraform
+  runs-on: ubuntu-latest
+  steps:
+    - name: upgrade
+      run: sudo apt update -y
+    - name: terraform install
+      run: sudo apt-get install terraform
+    - name: terraform version
+      run: terraform --version
+  
+       
   
