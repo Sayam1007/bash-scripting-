@@ -27,7 +27,7 @@ jobs:
      needs: run-shell-script
      steps:
         - name: install terraform
-          uses: actions/setup-terraform@v3
+          uses: hashicorp/setup-terraform@v3
           with:
             version: 1.5.6
         - name: terraform version
@@ -38,3 +38,7 @@ jobs:
             version: 3.11
         - name: python version
           run: python --version
+        - name: install docker
+          uses: docker/setup-buildx-action@v3
+        - name: docker version
+          run: docker --version
