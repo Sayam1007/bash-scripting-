@@ -26,13 +26,13 @@ jobs:
      runs-on: ubuntu-latest
      steps:
         - name: install terraform
-          uses: actions/setup-terraform@v2
+          uses: actions/set-up-terraform@v2
           with:
             version: 1.5.6
         - name: terraform version
           run: terraform --version
         - name: python
-          uses: actions/setup-python@v3
+          uses: actions/set-up-python@v3
           with:
             version: 3.11
         - name: python version
