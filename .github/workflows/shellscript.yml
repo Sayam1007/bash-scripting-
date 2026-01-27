@@ -19,7 +19,7 @@ jobs:
       - name: add executable permssions to file
         run: chmod +x shellscript.yml
       - name: run the file
-        run: ./shellscript.yml
+        run: ./script.sh
         
    
   
